@@ -10,4 +10,13 @@ class TestController {
 
         }
     }
+
+    def list() {
+        def currentUser = userService.getCurrentUser()
+        if (!currentUser.certificates) {
+            redirect uri: '/'
+            return
+        }
+        [email: "some@email.com", publications: []]
+    }
 }
